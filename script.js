@@ -6,11 +6,13 @@ const openDialogButton = document.querySelector("#open-dialog");
 const closeDialogButton = document.querySelector("#close-dialog");
 const bookForm = document.querySelector("#book-form");
 
-function Book(title, author, pagesNumber, isFinish) {
-    this.title = title;
-    this.author = author;
-    this.pagesNumber = pagesNumber;
-    this.isFinish = isFinish ? "Terminé" : "En cours";
+class Book {
+    constructor(title, author, pagesNumber, isFinish){
+        this.title = title;
+        this.author = author;
+        this.pagesNumber = pagesNumber;
+        this.isFinish = isFinish ? "Terminé" : "En cours";
+    }
 }
 
 function addBookToLibrary(title, author, pagesNumber, isFinish) {
@@ -47,9 +49,6 @@ function createBookCard(book, index) {
     return newBookCard;
 }
 
-function addBookDialog(){
-
-}
 function renderBooks() {
     container.textContent = "";
     myLibrary.forEach((book, index) => {
